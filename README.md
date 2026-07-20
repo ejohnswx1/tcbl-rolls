@@ -1,2 +1,11 @@
 # tcbl-rolls
 This is a repository for all code related to the Francine (2024) hurricane boundary layer roll project.
+
+## Descriptions of Scripts
+
+#### Functions.py
+Script contains all functions responsible for automating the roll identification process. See utiliziations of each function in Main.ipynb.
+
+#### Main.ipynb
+The main automation example notebook, utilizing functions from Functions.py in order to to identify rolls for a sample time.
+
