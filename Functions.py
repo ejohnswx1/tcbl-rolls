@@ -113,7 +113,7 @@ def subsetFilter(ds, vad, z, smooth_size = 6, filter_threshold = 0.25):
     Args:
         ds: This is an xarray ds containing all CAPPI data from the Radx2Grid conversion for a particular time.
         vad: This is the xarray dataset containing the VAD data for a particular time.
-        z: The CAPPI z0 level (km) in ds that you are analzying.
+        z: The CAPPI z0 level (km) in ds that you are analyzing.
         smooth_size: The size parameter for the scipy.ndimage.median_filter function. 
                      Represents the every nth value taken as input into the filter function. 
                      (ex: smooth_size = 6, every 6th point is taken to be smoothed. A 6-point rolling median across a 2D field).           
@@ -216,7 +216,7 @@ def feature_DBSCAN(ds, labeled_arms, z, eps = 0.9):
     Args:
         ds: This is an xarray ds containing all CAPPI data from the Radx2Grid conversion for a particular time.
         labeled_arms:  A 2D integer array where detected coherent wave structures are uniquely labeled. Output from the GaborMask function.
-        z: The CAPPI z0 level (km) in ds that you are analzying.
+        z: The CAPPI z0 level (km) in ds that you are analyzing.
         eps: float parameter that describes strictness of the DBSCAN algorithm. The radius of the nth dimensional shape used in clustering features.
 
     Returns:
@@ -319,13 +319,14 @@ def segments_intersect(A, B, C, D):
     return ccw(A, C, D) != ccw(B, C, D) and ccw(A, B, C) != ccw(A, B, D)
 
 
-def makeCrossSections(ds, df_features, mean_vad_direction):
+def makeCrossSections(ds, z, df_features, mean_vad_direction):
 
     """
     This function uses the CAPPI data from Radx2Grid and detected features to create cross sections across potential roll features.
 
     Args:
         ds: This is an xarray ds containing all CAPPI data from the Radx2Grid conversion for a particular time.
+        z: The CAPPI z0 level (km) in ds that you are analyzing.
         df_features: A pandas dataframe consisting of properties of each feature and its cluster id. Output from feature_DBSCAN.
         mean_vad_direction: The mean VAD wind direction below the jet height. Output from subsetFilter.
 
