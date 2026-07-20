@@ -1,32 +1,22 @@
-import matplotlib
-import matplotlib.pyplot as plt
-import numpy as np
-import xarray as xr
-from scipy.ndimage import label, find_objects, center_of_mass, generate_binary_structure, median_filter, gaussian_filter, uniform_filter
-from scipy.interpolate import interp1d, RegularGridInterpolator
-from skimage.measure import regionprops
-from scipy.spatial.distance import cdist
-import pandas as pd
-import datetime
-import colormaps as cmaps
-from skimage.filters import sato, gabor
-from skimage.morphology import remove_small_objects
-from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import DBSCAN
-import pyart
-import glob
 import os
-import plotly.graph_objects as go
-import hdbscan
-from scipy.signal import convolve2d
-from scipy.stats import pearsonr
-from skimage.morphology import closing, disk, skeletonize, opening
-import hdbscan
-from skimage.filters import apply_hysteresis_threshold
-import time
-from skimage.feature import structure_tensor, structure_tensor_eigenvalues
-from skimage.filters import threshold_otsu
-from scipy.ndimage import gaussian_filter1d
+import numpy as np
+import pandas as pd
+import xarray as xr
+from sklearn.cluster import DBSCAN
+from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+from scipy.interpolate import RegularGridInterpolator
+from scipy.ndimage import (
+    gaussian_filter, 
+    median_filter, 
+    generate_binary_structure, 
+    label, 
+    find_objects, 
+    center_of_mass
+)
+from skimage.filters import gabor
+from skimage.measure import regionprops
+from skimage.morphology import remove_small_objects
 
 def find_frequency(ds, z):
 
