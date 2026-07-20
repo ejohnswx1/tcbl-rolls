@@ -295,6 +295,7 @@ def feature_DBSCAN(ds, labeled_arms, z, eps = 0.9):
     df_features['super_group_id'] = dbscan.fit_predict(scaled_data)
     
     # Calculate stdev only where there is actual signal activity
+    input_field = r_vel
     active_signal = input_field[input_field > 0.25]
     active_stdev = np.std(active_signal) if active_signal.size > 0 else 0
     
