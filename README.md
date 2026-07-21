@@ -9,3 +9,5 @@ Script contains all functions responsible for automating the roll identification
 #### Main.ipynb
 The main automation example notebook, utilizing functions from Functions.py in order to to identify rolls for a sample time.
 
+#### ComputeResidualVelocity.ipynb
+The notebook that shows how to compure residual velocity given a quality-controlled radar file.
